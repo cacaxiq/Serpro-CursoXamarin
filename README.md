@@ -2,8 +2,8 @@
 
 #### Ementa
 
-* 1. Introdução a plataforma
-	* 1.1. O que é a plataforma Xamarin 
+* 1 Introdução a plataforma
+	* 1.1 O que é a plataforma Xamarin 
 	* 1.2 Xamarin Studio 
 	* 1.3 Estruturas de desenvolvimento
 	* 1.4 Cross-Platforms 
