@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TextView
+        android:id="@+id/lbl_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome:" />
+    <EditText
+        android:id="@+id/txt_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:width="15px" />
+    <TextView
+        android:id="@+id/lbl_sexo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sexo:" />
+    <EditText
+        android:id="@+id/sexo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lbl_dataNascimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Nascimento:" />
+    <EditText
+        android:id="@+id/dataNascimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lbl_Ativo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ativo:" />
+    <EditText
+        android:id="@+id/ativo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lbl_ocupacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Ocupação:" />
+    <EditText
+        android:id="@+id/ocupacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lbl_qtdadeFilhos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantidade Filhos" />
+    <EditText
+        android:id="@+id/qtdadeFilhos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lbl_CPF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="CPF:" />
+    <EditText
+        android:id="@+id/CPF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="Criar Pessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addPessoa"
+        android:layout_marginBottom="0.0dp"
+        android:layout_marginTop="0.0dp"
+        android:width="15px"
+        android:padding="0dp"
+        android:layout_margin="0dp" />
+    <Button
+        android:text="Ver lista de Pessoas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navegarLista"
+        android:layout_marginBottom="0.0dp"
+        android:layout_marginTop="0.0dp"
+        android:width="15px"
+        android:padding="0dp"
+        android:layout_margin="0dp" />
+</LinearLayout>
