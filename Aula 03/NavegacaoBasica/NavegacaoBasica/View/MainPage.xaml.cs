@@ -11,7 +11,7 @@ namespace NavegacaoBasica.View
         {
             InitializeComponent();
 
-            BindingContext = new ViewModel.MainViewModel();
+            BindingContext = new ViewModel.MainViewModel(Navigation);
         }
 
         void NavegacaoBasica(object sender, System.EventArgs e)
