@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using SerproApp.View;
+using Xamarin.Forms.Xaml;
 
 namespace SerproApp
 {
@@ -9,7 +10,19 @@ namespace SerproApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginView());
+            MainPage = new ContentPage
+            {
+                Content = new StackLayout()
+                {
+                    Children = {
+                new Label() { Text = "A", FontSize = 30},
+                new Label() { Text = "B", FontSize = 30},
+                new Label() { Text = "C", FontSize = 30},
+                new Label() { Text = "D", FontSize = 30},
+                new Label() {Text="E", FontSize = 30}
+            }
+                }
+            };
         }
 
         protected override void OnStart()

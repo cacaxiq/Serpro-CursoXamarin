@@ -2,7 +2,7 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:local="clr-namespace:SerproApp.View;assembly=SerproApp"
-                  x:Class="SerproApp.View.MainView" Title="Pagina Inicial" BackgroundColor="#00420c">
+                  x:Class="SerproApp.View.MainView"  Title="Master" BackgroundColor="#00420c">
     <MasterDetailPage.Master>
         <local:MasterView x:Name="masterPage" />
     </MasterDetailPage.Master>

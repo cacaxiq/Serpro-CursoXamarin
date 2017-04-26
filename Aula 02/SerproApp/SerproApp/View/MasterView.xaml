@@ -2,47 +2,43 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="SerproApp.View.MasterView"
-	BackgroundColor="#00420c" Title="Pagina Inicial">
-
-	<ContentPage Title="Home" >
-		<StackLayout Spacing="1">
+	BackgroundColor="#00420c"
+	Title="Pagina Inicial"
+	Padding="10"
+	BarTextColor="Silver"
+	BarBackgroundColor="Orange">
+	<ContentPage Title="Home">
+		<StackLayout Spacing="2">
 			<Button Text="Empregados fecharam folha por competencia"
 				TextColor="Black"
-				BackgroundColor="White" 
-				Margin="5" />
+				BackgroundColor="White" />
 			<Button Text="Empregados geraram Guia por Competencia"
 				TextColor="Black"
-				BackgroundColor="White"
-				Margin="5" />
+				BackgroundColor="White" />
 			<Button Text="Empregados geraram Guia - Rescisória"
 				TextColor="Black"
-				BackgroundColor="White"
-				Margin="5" />
+				BackgroundColor="White" />
 			<Button Text="Eventos recebidos"
 				TextColor="Black"
-				BackgroundColor="White"
-				Margin="5" />
+				BackgroundColor="White" />
 			<Button Text="Empregados por faixa salarial"
 				TextColor="Black"
-				BackgroundColor="White"
-				Margin="5" />
+				BackgroundColor="White" />
 			<Button Text="Empregados por UF"
 				TextColor="Black"
-				BackgroundColor="White"
-				Margin="5" />
+				BackgroundColor="White" />
 			<Button Text="Admissões/Rescisões"
 				TextColor="Black"
-				BackgroundColor="White"
-				Margin="5" />
+				BackgroundColor="White" />
 		</StackLayout>
 	</ContentPage>
 	<ContentPage Title="Serviços">
-		<Label Text="Serviços"/>
+		<Label Text="Serviços" />
 	</ContentPage>
 	<ContentPage Title="Ajuda">
-		<Label Text="Ajuda"/>
+		<Label Text="Ajuda" />
 	</ContentPage>
 	<ContentPage Title="Configurações">
-		<Label Text="Configurações"/>
+		<Label Text="Configurações" />
 	</ContentPage>
 </TabbedPage>

@@ -10,6 +10,7 @@ namespace SerproApp.View
         public LoginView()
         {
             InitializeComponent();
+            BindingContext = new ViewModel.LoginViewModel();
         }
 
         void Handle_Clicked(object sender, System.EventArgs e)

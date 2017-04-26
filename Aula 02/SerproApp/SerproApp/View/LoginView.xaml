@@ -3,7 +3,8 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="SerproApp.View.LoginView"
 	BackgroundColor="White"
-	Padding="20,0,20,20">
+	Padding="20,0,20,20"
+	>
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
@@ -27,28 +28,30 @@
 				Padding="15,10,15,10"
 				Margin="1"
 				Grid.Column="0"
-				BackgroundColor="#91C3C3" >
-				<Entry Placeholder="CPF" 
+				BackgroundColor="#91C3C3">
+				<Entry Placeholder="CPF"
 					BackgroundColor="White"
-					PlaceholderColor="Silver" />
+					PlaceholderColor="Silver"
+				Text="{Binding Name}"/>
 				<Entry Placeholder="Código de Segurança"
 					BackgroundColor="White"
-					PlaceholderColor="Silver" />
-				<Entry Placeholder="Senha"
+					PlaceholderColor="Silver" Text="{Binding Name}" />
+				<Entry   Placeholder="Senha"
 					BackgroundColor="White"
-					PlaceholderColor="Silver" />
+					PlaceholderColor="Silver" Text="{Binding Name2}" />
+				
 				<Button BackgroundColor="Transparent"
-					Text="Primeiro Acesso?" 
+					Text="Primeiro Acesso?"
 					TextColor="#446AA6" />
 				<Button BackgroundColor="Transparent"
 					Text="Esqueceu código de acesso?"
-					TextColor="#446AA6"  />
+					TextColor="#446AA6" />
 				<Button BackgroundColor="#F37021"
-					Text="Ok" 
+					Text="Ok"
 					BorderColor="Transparent"
 					TextColor="White"
 					Margin="40,0,40,0"
-				Clicked="Handle_Clicked"/>
+					Clicked="Handle_Clicked" />
 			</StackLayout>
 		</Grid>
 	</ContentPage.Content>
