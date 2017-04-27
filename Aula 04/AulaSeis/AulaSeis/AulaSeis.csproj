@@ -73,6 +73,8 @@
     <Compile Include="View\Gesto.xaml.cs">
       <DependentUpon>Gesto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Custom\ButtonLink.cs" />
+    <Compile Include="DependencyService\INotification.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

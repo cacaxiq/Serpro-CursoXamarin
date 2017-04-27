@@ -8,7 +8,7 @@ namespace AulaSeis.Custom
     {
 
         public static readonly BindableProperty CommandProperty =
-            BindableProperty.Create("Command", typeof(ICommand), typeof(BorderedEntry), default(ICommand));
+            BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(ImageArrow), default(ICommand));
 
         public ICommand Command
         {

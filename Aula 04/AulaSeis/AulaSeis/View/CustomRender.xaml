@@ -11,11 +11,12 @@
 				TamanhoBorda="1"
 				TipoBorda="1" />
 			<controls:BorderedEntry CorBorda="Blue"
-				TamanhoBorda="1"
+				TamanhoBorda="5"
 				TipoBorda="2" />
 			<controls:BorderedEntry CorBorda="Blue"
 				TamanhoBorda="1"
 				TipoBorda="3" />
+			<controls:ButtonLink Text="Feito pelo Matheus"/>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

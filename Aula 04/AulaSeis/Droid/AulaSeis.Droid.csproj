@@ -120,6 +120,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyService\TalkCell.cs" />
     <Compile Include="Custom\BorderedEntryCustom.cs" />
+    <Compile Include="Custom\ButtonLinkCustom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -135,6 +136,8 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\android_button.xml" />
+    <AndroidResource Include="Resources\drawable\android_pressed.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyService\" />

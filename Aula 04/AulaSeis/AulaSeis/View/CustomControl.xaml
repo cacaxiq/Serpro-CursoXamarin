@@ -4,6 +4,11 @@
 	xmlns:controls="clr-namespace:AulaSeis.Custom;assembly=AulaSeis"
 	x:Class="AulaSeis.View.CustomControl">
 	<ContentPage.Content>
-		<controls:ImageArrow Source="icon.png"/>
+		<StackLayout>
+			<controls:ImageArrow Command="{Binding AlgoCommand}"
+				Source="icon.png" />     
+
+			<Button  Text="Link" BackgroundColor="Transparent" BorderColor="Transparent"  />
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
