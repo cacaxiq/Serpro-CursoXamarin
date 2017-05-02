@@ -8,9 +8,6 @@
 				x:Key="contentPadding"
 				Android="20,20,20,20"
 				iOS="20,25,20,20" />
-			<OnPlatform x:Key="FontAwesome"
-				x:TypeArguments="x:String"
-				iOS="fontawesome" />
 			<Style TargetType="ContentPage"
 				ApplyToDerivedTypes="true">
 				<Setter Property="Padding"
@@ -36,16 +33,16 @@
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Label Grid.Row="0"
-							Text="{Binding NomeFruta}"
+							Text="{Binding Nome}"
 							FontSize="25" />
 						<Label Grid.Row="1"
-							Text="{Binding Cidade}"
+							Text="{Binding Ocupacao}"
 							FontSize="15"
 							FontAttributes="Italic"
 							TextColor="Silver" />
 						<Label Grid.RowSpan="2"
 							Grid.Column="1"
-							Text="{Binding Estacao}"
+							Text="{Binding Ativo}"
 							Rotation="35"
 							FontSize="10"
 							TextColor="Teal"
@@ -84,16 +81,6 @@
 					</Grid>
 				</ViewCell>
 			</DataTemplate>
-			<Style TargetType="Label"
-				ApplyToDerivedTypes="true">
-				<Setter Property="FontFamily"
-					Value="{StaticResource FontAwesome}" />
-			</Style>
-			<Style TargetType="Button"
-				ApplyToDerivedTypes="true">
-				<Setter Property="FontFamily"
-					Value="{StaticResource FontAwesome}" />
-			</Style>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

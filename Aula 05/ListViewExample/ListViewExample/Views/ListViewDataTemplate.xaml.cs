@@ -20,8 +20,7 @@ namespace ListViewExample.Views
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
             }
 
-            DisplayAlert("Item Selected", ((Fruta)e.SelectedItem).Cidade, "Ok");
-            //((ListView)sender).SelectedItem = null; //uncomment line if you want to disable the visual selection state.
+            DisplayAlert("Item Selected", ((Pessoa)e.SelectedItem).Nome, "Ok");
         }
     }
 }

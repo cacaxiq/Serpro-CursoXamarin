@@ -18,9 +18,6 @@ namespace AulaSeis.Droid.Custom
             if (e.OldElement == null)
             {
 
-                var native = (global::Android.Widget.Button)Control;
-                native.SetText(2130837587);
-
             }
         }
     }

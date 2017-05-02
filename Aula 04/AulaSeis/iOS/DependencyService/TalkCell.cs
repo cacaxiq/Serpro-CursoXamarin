@@ -1,5 +1,5 @@
 ﻿using System;
-using AulaSeis.DependencyServices;
+using AulaSeis.DependencServices;
 using AulaSeis.iOS.DependencyService;
 using AVFoundation;
 

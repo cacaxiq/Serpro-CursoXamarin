@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using ListViewExample.Infra;
 using Xamarin.Forms;
 
 namespace ListViewExample.Views
@@ -11,6 +10,8 @@ namespace ListViewExample.Views
         {
             InitializeComponent();
             BindingContext = new ViewModels.ListViewExampleViewModel();
+
         }
+
     }
 }

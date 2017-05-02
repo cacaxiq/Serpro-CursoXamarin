@@ -4,12 +4,13 @@
 	x:Class="ListViewExample.Views.ListViewDataTemplate">
 	<ContentPage.Resources>
 		<ResourceDictionary>
-			
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ListView x:Name="listView"
-			ItemTemplate="{StaticResource template}" 
-		ItemsSource="{Binding Frutas}" RowHeight="60" ItemSelected="OnSelectLine"/>
+			ItemTemplate="{StaticResource template}"
+			ItemsSource="{Binding Pessoas}"
+			RowHeight="60"
+			ItemSelected="OnSelectLine"  />
 	</ContentPage.Content>
 </ContentPage>

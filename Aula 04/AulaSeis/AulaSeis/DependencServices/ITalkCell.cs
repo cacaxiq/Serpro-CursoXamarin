@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AulaSeis.DependencyServices
+namespace AulaSeis.DependencServices
 {
     public interface ITalkCell
     {

@@ -9,7 +9,7 @@
 	<ContentPage.Content>
 		<ListView x:Name="listView"
 			ItemTemplate="{StaticResource template}"
-			ItemsSource="{Binding Frutas}"
+			ItemsSource="{Binding Pessoas}"
 			RowHeight="60"
 			IsRefreshing="{Binding IsRefreshing}"
 			IsPullToRefreshEnabled="true"

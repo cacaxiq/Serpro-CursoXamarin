@@ -39,29 +39,3 @@ namespace ListViewExample.Custom
             this.GestureRecognizers.Add(gesto);
         }
     }
-
-    public class ButtonCollapse : Button
-    {
-
-
-        public ButtonCollapse(ListView lista)
-        {
-            this.Clicked += (sender, e) =>
-                {
-                    if (this.Rotation == 0)
-                    {
-                        this.Rotation = 270;
-                        lista.IsVisible = true;
-                    }
-                    else
-                    {
-                        this.Rotation = 0;
-                        lista.IsVisible = false;
-                    }
-
-
-                };
-        }
-
-    }
-}

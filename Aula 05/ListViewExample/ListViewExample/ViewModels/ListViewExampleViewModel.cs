@@ -13,18 +13,28 @@ namespace ListViewExample.ViewModels
 {
     public class ListViewExampleViewModel : EventChanged
     {
+        private PessoaService pessoaService;
+
+        private Page page;
+
         public ListViewExampleViewModel()
         {
+            pessoaService = new PessoaService();
 
+            Pessoas = new ObservableCollection<Pessoa>();
 
+            CarregaPessoas();
+        }
 
-            ObservableCollection<FrutasGroup> Groups = GeradorFrutas.GerarListaFrutasGroup(20);
+        public ListViewExampleViewModel(Page _page)
+        {
+            page = _page;
 
+            pessoaService = new PessoaService();
 
-            FrutasGroup = Groups;
+            Pessoas = new ObservableCollection<Pessoa>();
 
-
-
+            CarregaPessoas();
         }
 
         private bool _isRefreshing = false;
@@ -38,13 +48,7 @@ namespace ListViewExample.ViewModels
             }
         }
 
-        public ObservableCollection<Fruta> Frutas
-        {
-            get;
-            set;
-        }
-
-        public ObservableCollection<FrutasGroup> FrutasGroup
+        public ObservableCollection<Pessoa> Pessoas
         {
             get;
             set;
@@ -55,13 +59,46 @@ namespace ListViewExample.ViewModels
             get { return new Command(AtualizaLista); }
         }
 
+        public ICommand DetalheCommand
+        {
+            get { return new Command<Pessoa>(ExecuteDetalheCommand); }
+        }
+
+        public ICommand RemoverCommand
+        {
+            get { return new Command<Pessoa>(ExecuteRemoverCommand); }
+        }
+
+        private async void CarregaPessoas()
+        {
+            var lista = await pessoaService.Get();
+            Pessoas.Clear();
+            foreach (var item in lista)
+            {
+                Pessoas.Add(item);
+            }
+        }
 
         public async void AtualizaLista()
         {
             IsRefreshing = true;
-            await Task.Delay(5000);
-            GeradorFrutas.GerarListaFrutas(Frutas);
+            var lista = await pessoaService.GetOrdered();
+            Pessoas.Clear();
+            foreach (var item in lista)
+            {
+                Pessoas.Add(item);
+            }
             IsRefreshing = false;
+        }
+
+        public void ExecuteDetalheCommand(Pessoa pessoa)
+        {
+            page.DisplayAlert("Também é possivel direcionar para uma outra página sobre detalhes do ", pessoa.Nome, "OK");
+        }
+
+        public void ExecuteRemoverCommand(Pessoa pessoa)
+        {
+            page.DisplayAlert("É possível executar várias processos utilizando todo o objeto do ", pessoa.Nome, "OK");
         }
     }
 }

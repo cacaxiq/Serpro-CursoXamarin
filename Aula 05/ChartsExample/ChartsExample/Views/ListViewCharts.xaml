@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+	x:Class="ChartsExample.Views.ListViewCharts">
+	<ContentPage.Content>
+		<ScrollView >
+			<StackLayout>
+				<oxy:PlotView Model="{Binding Model}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+			
+				<oxy:PlotView Model="{Binding Model1}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+			
+				<oxy:PlotView Model="{Binding Model2}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+			
+				<oxy:PlotView Model="{Binding Model3}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+		
+				<oxy:PlotView Model="{Binding Model4}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+		
+				<oxy:PlotView Model="{Binding Model5}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+			
+				<oxy:PlotView Model="{Binding Model6}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+			
+				<oxy:PlotView Model="{Binding Model7}"
+					HeightRequest="{Binding HalfScreenHeight}">
+				</oxy:PlotView>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

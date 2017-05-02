@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using AulaSeis.DependencyServices;
+using AulaSeis.DependencServices;
 using Xamarin.Forms;
 
 namespace AulaSeis.View

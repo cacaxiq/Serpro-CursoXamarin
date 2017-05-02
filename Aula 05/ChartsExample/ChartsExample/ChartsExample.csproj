@@ -28,19 +28,55 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="ChartsExamplePage.xaml" />
+    <EmbeddedResource Include="Views\ChartsExamplePage.xaml" />
+    <EmbeddedResource Include="Views\PizzaExamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListViewCharts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChartsExamplePage.xaml.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ChartsExamplePage.xaml.cs">
       <DependentUpon>ChartsExamplePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BarraViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="Views\PizzaExamplePage.xaml.cs">
+      <DependentUpon>PizzaExamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PizzaViewModel.cs" />
+    <Compile Include="Series\BarSeriesExamples.cs" />
+    <Compile Include="Series\ColumnSeriesExamples.cs" />
+    <Compile Include="Series\ContourSeriesExamples.cs" />
+    <Compile Include="Series\FunctionSeriesExamples.cs" />
+    <Compile Include="Series\HeatMapSeriesExamples.cs" />
+    <Compile Include="Series\LineSeriesExamples.cs" />
+    <Compile Include="Series\ScatterSeriesExamples.cs" />
+    <Compile Include="Series\StemSeriesExamples.cs" />
+    <Compile Include="Series\TwoColorLineSeriesExamples.cs" />
+    <Compile Include="Views\ListViewCharts.xaml.cs">
+      <DependentUpon>ListViewCharts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ListViewChartsViewModel.cs" />
+    <Compile Include="Axes\AxisExamples.cs" />
+    <Compile Include="Axes\DateTimeAxisExamples.cs" />
+    <Compile Include="Axes\LinearAxisExamples.cs" />
+    <Compile Include="Axes\LogarithmicAxisExamples.cs" />
+    <Compile Include="Axes\PolarPlotExamples.cs" />
+    <Compile Include="Axes\TimeSpanAxisExamples.cs" />
+    <Compile Include="Annotations\LineAnnotationExamples.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

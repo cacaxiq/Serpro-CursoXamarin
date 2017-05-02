@@ -10,14 +10,11 @@
 				Command="{Binding ListViewSimples}" />
 			<Button Text="ListView DataTemplate"
 				Command="{Binding ListViewDataTemplate}" />
-			<Button x:Name="CustomControl"
-				Text="ListView Refresh"
+			<Button Text="ListView Refresh"
 				Command="{Binding ListViewRefresh}" />
-			<Button 
-				Text="CollapseView"
-				Command="{Binding CollapseView}" />
-			<Button 
-				Text="Azure"
+			<Button Text="ListView Interactivity"
+				Command="{Binding ListViewExampleInteractivity}" />
+			<Button Text="RestApi"
 				Command="{Binding Azure}" />
 		</StackLayout>
 	</ContentPage.Content>

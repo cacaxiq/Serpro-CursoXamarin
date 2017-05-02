@@ -14,17 +14,53 @@ namespace AulaSeis
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    break;
+                case Device.Android:
+                    Xamarin.Forms.DependencyService.Get<DependencServices.INotification>().PushNotification("Aplicativo Iniciado", "Vamos começar a praticar Xamarin.");
+                    break;
+                case Device.WinPhone:
+                case Device.Windows:
+                default:
+
+                    break;
+            }
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    break;
+                case Device.Android:
+                    Xamarin.Forms.DependencyService.Get<DependencServices.INotification>().PushNotification("Aplicativo Em Segundo Plano", "Entrei em repouso!!!");
+                    break;
+                case Device.WinPhone:
+                case Device.Windows:
+                default:
+
+                    break;
+            }
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    break;
+                case Device.Android:
+                    Xamarin.Forms.DependencyService.Get<DependencServices.INotification>().PushNotification("Aplicativo Reaberto", "Maurílio libera a pizza!!!");
+                    break;
+                case Device.WinPhone:
+                case Device.Windows:
+                default:
+
+                    break;
+            }
         }
     }
 }

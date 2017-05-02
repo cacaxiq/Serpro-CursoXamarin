@@ -2,7 +2,7 @@
 using Android.Speech.Tts;
 using Xamarin.Forms;
 using System.Collections.Generic;
-using AulaSeis.DependencyServices;
+using AulaSeis.DependencServices;
 using AulaSeis.Droid.DependencyService;
 
 [assembly: Xamarin.Forms.Dependency(typeof(TalkCell))]

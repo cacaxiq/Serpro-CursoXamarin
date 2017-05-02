@@ -121,6 +121,8 @@
     <Compile Include="DependencyService\TalkCell.cs" />
     <Compile Include="Custom\BorderedEntryCustom.cs" />
     <Compile Include="Custom\ButtonLinkCustom.cs" />
+    <Compile Include="DependencyService\NotificationCustom.cs" />
+    <Compile Include="Custom\PageCustomDroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -28,20 +28,14 @@ namespace ListViewExample.ViewModels
             get { return new Command(() => ChangePage(new Views.ListViewRefresh())); }
         }
 
-        public ICommand CollapseView
+        public ICommand ListViewExampleInteractivity
         {
-            get { return new Command(() => ChangePage(new Views.CollapseView())); }
+            get { return new Command(() => ChangePage(new Views.ListViewExampleInteractivity())); }
         }
 
-        public ICommand Azure
+        async void ChangePage(Page page)
         {
-            get { return new Command(() => ChangePage(new Views.ListAzure())); }
+            await Navegacao.PushAsync(page);
         }
-
-        private async void ChangePage(Page page)
-        {
-            await Navegacao.PushModalAsync(page);
-        }
-
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using System.Windows.Input;
-using AulaSeis.DependencyServices;
+using AulaSeis.DependencServices;
 using AulaSeis.Infra;
 using Xamarin.Forms;
 
