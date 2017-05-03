@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+	x:Class="MapasExample.Views.MapasExamplePage">
+	<StackLayout VerticalOptions="StartAndExpand"
+		Padding="30">
+		<maps:Map x:Name="meuMapa"
+			WidthRequest="320"
+			HeightRequest="200"
+			IsShowingUser="true"
+			MapType="{Binding Selected}"/>
+		<Button Text="Inserir PIN aleatório"
+			Command="{Binding InserirPinCommand}" />
+		<Picker x:Name="tipoMapa" ItemsSource="{Binding TipoMapas}" SelectedItem="{Binding Selected}" SelectedIndexChanged="Handle_SelectedIndexChanged"/>
+				<Button Text="Mapa Customizado"
+			Command="{Binding MapCustomCommand}" />
+	</StackLayout>
+</ContentPage>
