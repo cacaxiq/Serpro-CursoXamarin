@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using AsNum.XFControls.Droid;
 
 namespace SerproApp.Droid
 {
@@ -20,6 +21,8 @@ namespace SerproApp.Droid
 
             base.OnCreate(bundle);
 
+            AsNumAssemblyHelper.HoldAssembly();
+            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());

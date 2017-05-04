@@ -1,33 +1,40 @@
 ﻿using Xamarin.Forms;
 using SerproApp.View;
 using Xamarin.Forms.Xaml;
+using SerproApp.Model;
+using SerproApp.Services.WebService.ServiceClass;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SerproApp
 {
     public partial class App : Application
     {
+        //LoginService loginService;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new ContentPage
+            MainPage = new NavigationPage(new View.LoginView())
             {
-                Content = new StackLayout()
-                {
-                    Children = {
-                new Label() { Text = "A", FontSize = 30},
-                new Label() { Text = "B", FontSize = 30},
-                new Label() { Text = "C", FontSize = 30},
-                new Label() { Text = "D", FontSize = 30},
-                new Label() {Text="E", FontSize = 30}
-            }
-                }
+                BackgroundColor = Color.FromHex("#00420c"),
+                BarTextColor = Color.Silver,
+                BarBackgroundColor = Color.Blue, //Color.FromHex("#00420c")
             };
+
+            NavigationPage.SetHasNavigationBar(this, false);
+            //loginService = new LoginService();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            var login = new Login();
+
+            login.UserPassword = "Teste";
+            login.UserCPF = "123456";
+            login.SecureCode = "true1234";
+
+            //await loginService.SaveTodoItemAsync(login, true);
         }
 
         protected override void OnSleep()

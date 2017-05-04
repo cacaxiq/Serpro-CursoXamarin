@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
-	x:Class="SerproApp.View.PaginaUmView"
+	
 	xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
-	BackgroundColor="White"
-	Title="Estatística eSocial">
-	<ContentPage.Resources>
-		<ResourceDictionary>
-
-		</ResourceDictionary>
-	</ContentPage.Resources>
-	<ContentPage.Content>
+	x:Class="SerproApp.View.DetalheGrafico">
+	<ContentView.Content>
 		<StackLayout Padding="20"
 			HorizontalOptions="Fill"
 			VerticalOptions="Fill">
@@ -22,7 +16,7 @@
 			<ctrls:TabView Grid.Row="2"
 				ItemsSource="{Binding Lista}"
 				TabHeightRequest="60"
-				TabPosition="Top">
+				TabPosition="Bottom">
 				<ctrls:TabView.TabTemplate>
 					<DataTemplate>
 						<Label Text="{Binding Ano}"
@@ -39,5 +33,5 @@
 				</ctrls:TabView.ItemTemplate>
 			</ctrls:TabView>
 		</StackLayout>
-	</ContentPage.Content>
-</ContentPage>
+	</ContentView.Content>
+</ContentView>

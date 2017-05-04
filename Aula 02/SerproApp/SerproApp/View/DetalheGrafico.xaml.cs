@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace SerproApp.View
 {
-    public partial class PaginaUmView : ContentPage
+    public partial class DetalheGrafico : ContentView
     {
-        public PaginaUmView()
+        public DetalheGrafico()
         {
             InitializeComponent();
-            BindingContext = new ViewModel.PaginaUmViewModel();
         }
     }
 }

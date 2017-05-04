@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using AsNum.XFControls.iOS;
 using Foundation;
 using UIKit;
 
@@ -12,6 +12,8 @@ namespace SerproApp.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
+            AsNumAssemblyHelper.HoldAssembly();
             global::Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App());

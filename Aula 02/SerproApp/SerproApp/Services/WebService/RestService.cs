@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -7,8 +8,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SerproApp.Helpers.Dependency;
+using Xamarin.Forms;
 
-namespace TodoREST
+namespace SerproApp.Services.WebService
 {
     public class RestService<T> : IRestService<T>
     {
@@ -17,6 +20,10 @@ namespace TodoREST
         public List<T> Items { get; private set; }
 
         private string RestUrl;
+
+        private string NomeClasse;
+
+        Page page;
 
         public RestService()
         {
@@ -29,16 +36,17 @@ namespace TodoREST
                   .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("zumo-api-version", "2.0.0");
 
-            var nomeClasse = typeof(T).ToString().Split('.')[1].ToLower();
+            NomeClasse = typeof(T).ToString().Split('.').Last();
 
-            RestUrl = string.Format(Constants.RestUrl, nomeClasse);
+            RestUrl = string.Format(Constants.RestUrl, NomeClasse);
+
+            page = App.Current.MainPage;
         }
 
         public async Task<List<T>> RefreshDataAsync()
         {
             Items = new List<T>();
 
-            // RestUrl = http://developer.xamarin.com:8081/api/todoitems{0}
             var uri = new Uri(RestUrl);
 
             try
@@ -60,9 +68,7 @@ namespace TodoREST
 
         public async Task SaveTodoItemAsync(T item, bool isNewItem = false)
         {
-
             var id = GetPropValue(item, "Id");
-            // RestUrl = http://developer.xamarin.com:8081/api/todoitems{0}
             var uri = new Uri(string.Format(RestUrl, id));
 
             try
@@ -84,7 +90,7 @@ namespace TodoREST
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine(@"TodoItem successfully saved.");
+                    await page.DisplayAlert("Sucesso", NomeClasse + " successfully saved.", "Ok");
                 }
 
             }
@@ -96,7 +102,6 @@ namespace TodoREST
 
         public async Task DeleteTodoItemAsync(string id)
         {
-            // RestUrl = http://developer.xamarin.com:8081/api/todoitems{0}
             var uri = new Uri(string.Format(RestUrl, id));
 
             try

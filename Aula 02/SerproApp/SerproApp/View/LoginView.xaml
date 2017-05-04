@@ -1,57 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
 	x:Class="SerproApp.View.LoginView"
 	BackgroundColor="White"
-	Padding="20,0,20,20"
-	>
+	Padding="20,0,20,20">
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="100" />
 				<RowDefinition Height="*" />
-				<RowDefinition Height="100" />
+				<RowDefinition Height="80" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 			<Image Source="esocial.png"
-				Scale="0.5"
+				Margin="20"
 				Grid.Row="0"
 				Grid.Column="0" />
 			<Image Source="governofederalbrasillogo.png"
+				Margin="5"
 				Grid.Row="2"
-				Grid.Column="0"
-				Scale="0.8" />
+				Grid.Column="0" />
 			<StackLayout Grid.Row="1"
+				HorizontalOptions="Fill"
+				VerticalOptions="Fill"
 				Spacing="5"
 				Padding="15,10,15,10"
-				Margin="1"
 				Grid.Column="0"
 				BackgroundColor="#91C3C3">
 				<Entry Placeholder="CPF"
 					BackgroundColor="White"
 					PlaceholderColor="Silver"
-				Text="{Binding Name}"/>
+					Text="{Binding CPF}" />
 				<Entry Placeholder="Código de Segurança"
 					BackgroundColor="White"
-					PlaceholderColor="Silver" Text="{Binding Name}" />
-				<Entry   Placeholder="Senha"
+					PlaceholderColor="Silver"
+					Text="{Binding Login.SecureCode}" />
+				<Entry Placeholder="Senha"
 					BackgroundColor="White"
-					PlaceholderColor="Silver" Text="{Binding Name2}" />
-				
+					PlaceholderColor="Silver"
+					Text="{Binding Senha}" />
 				<Button BackgroundColor="Transparent"
 					Text="Primeiro Acesso?"
-					TextColor="#446AA6" />
+					TextColor="#446AA6"
+					Command="{Binding PrimeiroAcessoCommand}" />
 				<Button BackgroundColor="Transparent"
 					Text="Esqueceu código de acesso?"
-					TextColor="#446AA6" />
+					TextColor="#446AA6"
+					Command="{Binding EsqueceuSenhaCommand}" />
 				<Button BackgroundColor="#F37021"
 					Text="Ok"
 					BorderColor="Transparent"
 					TextColor="White"
 					Margin="40,0,40,0"
-					Clicked="Handle_Clicked" />
+					Command="{Binding LoginCommand}" />
+				<ctrls:CheckBox Size="10" ShowLabel="true" HorizontalOptions="End"   Checked="false" Text="Lembrar Login"/>
 			</StackLayout>
 		</Grid>
 	</ContentPage.Content>
