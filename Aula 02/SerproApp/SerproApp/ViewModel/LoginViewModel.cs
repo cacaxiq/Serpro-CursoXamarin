@@ -73,17 +73,17 @@ namespace SerproApp.ViewModel
 
         async void ExecuteLoginCommand()
         {
-            var retorno = await loginService.RefreshDataAsync();
-            if (retorno.Count == 0)
-                await page.DisplayAlert("Erro", "Falha no ligin.", "Ok");
+            //var retorno = await loginService.RefreshDataAsync();
+            //if (retorno.Count == 0)
+            //    await page.DisplayAlert("Erro", "Falha no ligin.", "Ok");
 
-            var exist = retorno.Exists(p => p.UserCPF == CPF && p.UserPassword == Senha);
+            //var exist = retorno.Exists(p => p.UserCPF == CPF && p.UserPassword == Senha);
 
-            if (exist)
-            {
-                await page.DisplayAlert("Sucesso", "Voce será direcionado.", "Ok");
-                await navegacao.PushAsync(new MainView());
-            }
+            //if (exist)
+            //{
+            //    await page.DisplayAlert("Sucesso", "Voce será direcionado.", "Ok");
+            await navegacao.PushAsync(new MainView());
+            // }
         }
 
 

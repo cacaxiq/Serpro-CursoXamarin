@@ -35,8 +35,9 @@ namespace SerproApp.Model
                         new BarItem{ Value = (cakePopularity[3] / sum * 100) },
                         new BarItem{ Value = (cakePopularity[4] / sum * 100) }
                     }),
-                LabelPlacement = LabelPlacement.Inside,
-                LabelFormatString = "{0:.00}%"
+                FillColor = OxyColor.Parse("#3cbe9a"),
+                StrokeColor = OxyColor.Parse("#000000"),
+
             };
             model.Series.Add(barSeries);
 
@@ -57,31 +58,38 @@ namespace SerproApp.Model
             return model;
         }
 
-        public static PlotModel SerproSeries()
+        public static PlotModel SerproSeries(string titulo)
         {
 
             var model = new PlotModel();
 
-
+            model.PlotAreaBackground = OxyPlot.OxyColor.Parse("#F5F9E7");
+            model.SelectionColor = OxyColors.Red;
+            model.PlotAreaBorderColor = OxyColor.Parse("#646471");
+            model.Title = titulo;
+            model.TitleColor = OxyColor.Parse("#646471");
+            model.LegendPosition = LegendPosition.RightMiddle;
+            model.LegendPlacement = LegendPlacement.Inside;
+            model.LegendTextColor = OxyColors.White;
+            model.IsLegendVisible = true;
 
             //generate a random percentage distribution between the 5
             //cake-types (see axis below)
             var rand = new Random();
             double[] cakePopularity = new double[12];
-            for (int i = 0; i < 12; ++i)
-            {
-                cakePopularity[i] = rand.Next(1000000, 1800000);
-            }
-            var sum = cakePopularity.Sum();
 
-            var barSeries = new BarSeries
-            {
-                ItemsSource = new List<BarItem>(new[]
+			for (int i = 0; i < 12; ++i)
+			{
+				cakePopularity[i] = rand.Next(1000000, 1800000);
+			}
+
+			List<BarItem> lista = new List<BarItem>(new[]
                     {
-                        new BarItem{ Value = (cakePopularity[0]) },
+                        new BarItem{ Value = (cakePopularity[0]), },
                         new BarItem{ Value = (cakePopularity[1] ) },
                         new BarItem{ Value = (cakePopularity[2] ) },
                         new BarItem{ Value = (cakePopularity[3] ) },
+                        new BarItem{ Value = (cakePopularity[4] ) },
                         new BarItem{ Value = (cakePopularity[5] ) },
                         new BarItem{ Value = (cakePopularity[6] ) },
                         new BarItem{ Value = (cakePopularity[7] ) },
@@ -89,36 +97,119 @@ namespace SerproApp.Model
                         new BarItem{ Value = (cakePopularity[9] ) },
                         new BarItem{ Value = (cakePopularity[10] ) },
                         new BarItem{ Value = (cakePopularity[11] ) }
-                    }),
-                LabelFormatString = "{0:0,0.00}"
+            });
+
+          
+
+            var barSeries = new BarSeries
+            {
+                ItemsSource = lista,
+                FillColor = OxyColor.Parse("#646471"),
+                SelectionMode = SelectionMode.Single,
+                TextColor = OxyColors.White,
+                FontSize = 10,
+                LabelPlacement = LabelPlacement.Inside,
+                LabelFormatString = "{0:#,##0.00}"
+
+
             };
             model.Series.Add(barSeries);
+
 
             model.Axes.Add(new CategoryAxis
             {
                 Position = AxisPosition.Left,
-                Key = "CakeAxis",
+                AxislineColor = OxyColor.Parse("#646471"),
+                TextColor = OxyColor.Parse("#646471"),
+                TicklineColor = OxyColor.Parse("#646471"),
+
                 ItemsSource = new[]
                     {
                         "janeiro",
                         "fevereiro",
                         "março",
-                    "abril",
-                    "maio",
+                        "abril",
+                        "maio",
                         "junho",
                         "julho",
-                    "agosto",
-                    "setembro",
+                        "agosto",
+                        "setembro",
                         "outubro",
                         "novembro",
-                    "dezembro"
+                        "dezembro"
                     }
+            });
+
+            model.Axes.Add(new CategoryAxis
+            {
+                Position = AxisPosition.Bottom,
+                IsAxisVisible = false
             });
 
             return model;
         }
 
-        public static PlotModel BarSeries_grouped()
+		public static PlotModel SerproSeriesMes(string titulo)
+		{
+
+			var model = new PlotModel();
+
+			model.PlotAreaBackground = OxyPlot.OxyColor.Parse("#F5F9E7");
+			model.SelectionColor = OxyColors.Red;
+			model.PlotAreaBorderColor = OxyColor.Parse("#646471");
+			model.Title = titulo;
+			model.TitleColor = OxyColor.Parse("#646471");
+			model.LegendPosition = LegendPosition.RightMiddle;
+			model.LegendPlacement = LegendPlacement.Inside;
+			model.LegendTextColor = OxyColors.White;
+			model.IsLegendVisible = true;
+
+			//generate a random percentage distribution between the 5
+			//cake-types (see axis below)
+			var rand = new Random();
+
+
+            List<BarItem> lista = new List<BarItem>();
+
+			for (int i = 0; i < 31; ++i)
+			{
+                lista.Add(new BarItem { Value = rand.Next(33000, 60000) });
+			}
+
+			var barSeries = new BarSeries
+			{
+				ItemsSource = lista,
+				FillColor = OxyColor.Parse("#646471"),
+				SelectionMode = SelectionMode.Single,
+				TextColor = OxyColors.White,
+				FontSize = 6,
+				LabelPlacement = LabelPlacement.Inside,
+				LabelFormatString = "{0:#,##0}"
+			};
+
+			model.Series.Add(barSeries);
+
+
+			model.Axes.Add(new CategoryAxis
+			{
+				Position = AxisPosition.Left,
+				AxislineColor = OxyColor.Parse("#646471"),
+				TextColor = OxyColor.Parse("#646471"),
+				TicklineColor = OxyColor.Parse("#646471")
+
+			});
+
+			model.Axes.Add(new CategoryAxis
+			{
+				Position = AxisPosition.Bottom,
+				IsAxisVisible = false
+			});
+
+			return model;
+		}
+
+
+		public static PlotModel BarSeries_grouped()
         {
             var model = new PlotModel
             {

@@ -12,11 +12,14 @@ namespace SerproApp.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
-            AsNumAssemblyHelper.HoldAssembly();
-            global::Xamarin.Forms.Forms.Init();
 
+
+
+            AsNumAssemblyHelper.HoldAssembly();
+            OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
+            global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
 
             return base.FinishedLaunching(app, options);
         }

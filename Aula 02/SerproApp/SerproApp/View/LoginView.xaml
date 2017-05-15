@@ -1,21 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
 	x:Class="SerproApp.View.LoginView"
 	BackgroundColor="White"
-	Padding="20,0,20,20">
+	Padding="0,20,0,0">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<Color x:Key="verdeBase">#5D6D27</Color>
+			
+			<Style TargetType="Entry">
+				<Setter Property="TextColor" Value="#1D1D21" />
+			</Style>
+			<Style TargetType="Label">
+				<Setter Property="TextColor" Value="#1D1D21" />
+			</Style>
+			<Style TargetType="Button">
+				<Setter Property="Margin" Value="2" />
+                <Setter Property="TextColor" Value="White" />
+			</Style>
+		</ResourceDictionary>
+	</ContentView.Resources>
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="100" />
 				<RowDefinition Height="*" />
-				<RowDefinition Height="80" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="1.5*" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="5" />
 				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="5" />
 			</Grid.ColumnDefinitions>
 			<Image Source="esocial.png"
+				Grid.Row="1"
+				Grid.ColumnSpan="4" />
+			<Entry Placeholder="CPF"
+				PlaceholderColor="Silver"
+				Text="{Binding CPF}"
+				Grid.Row="4"
+				Grid.ColumnSpan="2"
+				Grid.Column="1" />
+			<Entry Placeholder="Código de Segurança"
+				PlaceholderColor="Silver"
+				Text="{Binding Login.SecureCode}"
+				Grid.Row="5"
+				Grid.ColumnSpan="2"
+				Grid.Column="1" />
+			<Entry Placeholder="Senha"
+				IsPassword="true"
+				PlaceholderColor="Silver"
+				Text="{Binding Senha}"
+				Grid.Row="6"
+				Grid.ColumnSpan="2"
+				Grid.Column="1" />
+			<StackLayout Orientation="Horizontal"
+				VerticalOptions="CenterAndExpand"
+				Grid.Row="7"
+				Grid.ColumnSpan="2"
+				Grid.Column="1">
+				<Switch Margin="0,-5,-10,0"
+					Scale="0.5" />
+				<Label Font="Small"
+					Text="Lembrar Login" />
+			</StackLayout>
+			<Button Text="Login"
+				BackgroundColor="{StaticResource verdeBase}"
+				Grid.Row="9"
+				Grid.Column="0"
+				Grid.ColumnSpan="2" />
+			<Button Text="Ajuda"
+				BackgroundColor="#35372E"
+				Grid.Row="9"
+				Grid.Column="2"
+				Grid.ColumnSpan="2" />
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
+<!-- <Image Source="esocial.png"
 				Margin="20"
 				Grid.Row="0"
 				Grid.Column="0" />
@@ -25,11 +95,11 @@
 				Grid.Column="0" />
 			<StackLayout Grid.Row="1"
 				HorizontalOptions="Fill"
-				VerticalOptions="Fill"
-				Spacing="5"
+				VerticalOptions="Center"
+				Spacing="1"
 				Padding="15,10,15,10"
 				Grid.Column="0"
-				BackgroundColor="#91C3C3">
+				BackgroundColor="Transparent">
 				<Entry Placeholder="CPF"
 					BackgroundColor="White"
 					PlaceholderColor="Silver"
@@ -40,6 +110,7 @@
 					Text="{Binding Login.SecureCode}" />
 				<Entry Placeholder="Senha"
 					BackgroundColor="White"
+					IsPassword="true"
 					PlaceholderColor="Silver"
 					Text="{Binding Senha}" />
 				<Button BackgroundColor="Transparent"
@@ -56,8 +127,9 @@
 					TextColor="White"
 					Margin="40,0,40,0"
 					Command="{Binding LoginCommand}" />
-				<ctrls:CheckBox Size="10" ShowLabel="true" HorizontalOptions="End"   Checked="false" Text="Lembrar Login"/>
-			</StackLayout>
-		</Grid>
-	</ContentPage.Content>
-</ContentPage>
+				<ctrls:CheckBox Size="10"
+					ShowLabel="true"
+					HorizontalOptions="End"
+					Checked="false"
+					Text="Lembrar Login" />
+			</StackLayout>-->

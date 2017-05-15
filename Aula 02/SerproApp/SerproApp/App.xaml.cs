@@ -15,26 +15,14 @@ namespace SerproApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new View.LoginView())
-            {
-                BackgroundColor = Color.FromHex("#00420c"),
-                BarTextColor = Color.Silver,
-                BarBackgroundColor = Color.Blue, //Color.FromHex("#00420c")
-            };
+            MainPage = new NavigationPage(new View.MainView());
 
-            NavigationPage.SetHasNavigationBar(this, false);
-            //loginService = new LoginService();
+
         }
 
         protected override void OnStart()
         {
-            var login = new Login();
 
-            login.UserPassword = "Teste";
-            login.UserCPF = "123456";
-            login.SecureCode = "true1234";
-
-            //await loginService.SaveTodoItemAsync(login, true);
         }
 
         protected override void OnSleep()

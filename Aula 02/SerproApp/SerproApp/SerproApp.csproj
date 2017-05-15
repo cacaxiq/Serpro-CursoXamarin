@@ -5,7 +5,6 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C520CD4F-EFDC-4E39-8C3B-7F14E0E5209F}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
     <RootNamespace>SerproApp</RootNamespace>
     <AssemblyName>SerproApp</AssemblyName>
@@ -32,16 +31,16 @@
     <EmbeddedResource Include="View\LoginView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainView.xaml">
+    <EmbeddedResource Include="View\DetalheGrafico.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MasterView.xaml">
+    <EmbeddedResource Include="View\MainView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PaginaUmView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\DetalheGrafico.xaml">
+    <EmbeddedResource Include="View\MasterView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -56,21 +55,14 @@
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MasterView.xaml.cs">
-      <DependentUpon>MasterView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PaginaUmView.xaml.cs">
       <DependentUpon>PaginaUmView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ImageResourceExtension.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="Services\DataBase\DataServiceBase.cs" />
-    <Compile Include="Services\DataBase\IDataServiceBase.cs" />
     <Compile Include="Services\WebService\IRestService.cs" />
     <Compile Include="Services\WebService\RestService.cs" />
-    <Compile Include="Helpers\Dependency\EmptyInterface.cs" />
     <Compile Include="Model\ModelBase.cs" />
-    <Compile Include="Helpers\Dependency\IFileHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="Services\WebService\ServiceClass\LoginService.cs" />
@@ -80,6 +72,15 @@
     <Compile Include="View\DetalheGrafico.xaml.cs">
       <DependentUpon>DetalheGrafico.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ItemCompetencia.cs" />
+    <Compile Include="Model\ItemTeste.cs" />
+    <Compile Include="Helpers\Converter\ConverterVisibility.cs" />
+    <Compile Include="Helpers\Behavior\VisibilityBehavior.cs" />
+    <Compile Include="View\MasterView.xaml.cs">
+      <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MasterViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
@@ -87,11 +88,11 @@
     <Folder Include="ViewModel\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\DataBase\" />
     <Folder Include="Services\WebService\" />
     <Folder Include="Helpers\CustomControl\" />
-    <Folder Include="Helpers\Dependency\" />
     <Folder Include="Services\WebService\ServiceClass\" />
+    <Folder Include="Helpers\Converter\" />
+    <Folder Include="Helpers\Behavior\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -106,18 +107,6 @@
     <Reference Include="PropertyChanged">
       <HintPath>..\packages\PropertyChanged.Fody.1.53.0\lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.core">
-      <HintPath>..\packages\SQLitePCLRaw.core.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_green">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_v2">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLite-net">
-      <HintPath>..\packages\sqlite-net-pcl.1.2.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -129,6 +118,18 @@
     </Reference>
     <Reference Include="AsNum.XFControls">
       <HintPath>..\packages\XFControls.1.0.0.6\lib\portable-net45+win8+wp8+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10\AsNum.XFControls.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.2.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

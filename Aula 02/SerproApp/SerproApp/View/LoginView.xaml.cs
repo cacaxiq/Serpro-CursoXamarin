@@ -10,6 +10,7 @@ namespace SerproApp.View
         public LoginView()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = new ViewModel.LoginViewModel(this, this.Navigation);
         }
     }

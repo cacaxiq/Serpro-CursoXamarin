@@ -18,7 +18,7 @@ namespace SerproApp.Model
             set;
         }
 
-        public PlotModel Grafico
+        public ItemCompetencia ItemCompetencia
         {
             get;
             set;

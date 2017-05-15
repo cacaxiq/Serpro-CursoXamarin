@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+    xmlns:converter="clr-namespace:SerproApp.Helpers.Converter;assembly=SerproApp"
+    xmlns:behavior="clr-namespace:SerproApp.Helpers.Behavior;assembly=SerproApp"
+    x:Class="SerproApp.View.PaginaDoisView"
+    xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+    BackgroundColor="White"
+    Title="Estatística eSocial"
+    x:Name="principal"
+    Padding="0,0,0,10">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ConverterVisibility
+                x:Key="habilita" />
+            <Color
+                x:Key="verdeBase">#5D6D27</Color>
+            <Color
+                x:Key="cinzaBase">#35372E</Color>
+            <Style
+                TargetType="NavigationPage">
+                <Setter
+                    Property="BarBackgroundColor"
+                    Value="#35372E" />
+                <Setter
+                    Property="BarTextColor"
+                    Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="14*" />
+                <RowDefinition
+                    Height="1.1*" />
+                <RowDefinition
+                    Height="1.1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                BackgroundColor="{StaticResource verdeBase}">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Text="Empregadores Fecharam Folha por Competencia">
+                </Label>
+            </StackLayout>
+            <ListView
+                Grid.Row="1"
+                IsVisible="{Binding Source={x:Reference visilityValidador},Path=IsValidInverse}"
+                ItemsSource="{Binding ItemTesteLista}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label
+                                TextColor="Black"
+                                Text="{Binding DisplayName}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <oxy:PlotView
+                Model="{Binding Grafico}"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding Source={x:Reference visilityValidador},Path=IsValid}"
+                Grid.Row="1" />
+            <ctrls:PickerEx  Grid.Row="2"/>
+            <Button Margin="20,0,20,0" 
+                BackgroundColor="{StaticResource verdeBase}"
+                Text="Valores"
+                Grid.Row="3"
+                TextColor="White"
+                >
+                <Button.Behaviors>
+                    <behavior:VisibilityBehavior
+                        x:Name="visilityValidador" />
+                </Button.Behaviors>
+            </Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+<!--HeightRequest="{Binding Path=Height, Source{x:reference Name=PlotGrafico}}" -->
+<!--    <oxy:PlotView Model="{Binding Grafico}"
+                            VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            HeightRequest="400" />-->

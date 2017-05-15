@@ -1,44 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="SerproApp.View.MasterView"
-	BackgroundColor="#00420c"
-	Title="Pagina Inicial"
-	Padding="10"
-	BarTextColor="Silver"
-	BarBackgroundColor="Orange">
-	<ContentPage Title="Home">
-		<StackLayout Spacing="2">
-			<Button Text="Empregados fecharam folha por competencia"
-				TextColor="Black"
-				BackgroundColor="White" />
-			<Button Text="Empregados geraram Guia por Competencia"
-				TextColor="Black"
-				BackgroundColor="White" />
-			<Button Text="Empregados geraram Guia - Rescisória"
-				TextColor="Black"
-				BackgroundColor="White" />
-			<Button Text="Eventos recebidos"
-				TextColor="Black"
-				BackgroundColor="White" />
-			<Button Text="Empregados por faixa salarial"
-				TextColor="Black"
-				BackgroundColor="White" />
-			<Button Text="Empregados por UF"
-				TextColor="Black"
-				BackgroundColor="White" />
-			<Button Text="Admissões/Rescisões"
-				TextColor="Black"
-				BackgroundColor="White" />
-		</StackLayout>
-	</ContentPage>
-	<ContentPage Title="Serviços">
-		<Label Text="Serviços" />
-	</ContentPage>
-	<ContentPage Title="Ajuda">
-		<Label Text="Ajuda" />
-	</ContentPage>
-	<ContentPage Title="Configurações">
-		<Label Text="Configurações" />
-	</ContentPage>
-</TabbedPage>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    BackgroundColor="{StaticResource verdeBase}"
+    Title="Master"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SerproApp.View.MasterView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color
+                x:Key="verdeBase">#5D6D27</Color>
+            <Color
+                x:Key="cinzaBase">#1D1D21</Color>
+            <Style
+                TargetType="Entry">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource cinzaBase}" />
+            </Style>
+            <Style
+                TargetType="Label">
+                <Setter
+                    Property="TextColor"
+                    Value="White" />
+            </Style>
+            <Style
+                TargetType="Button">
+                <Setter
+                    Property="Margin"
+                    Value="2" />
+            </Style>
+              <Style
+                TargetType="NavigationPage">
+                <Setter
+                    Property="BarBackgroundColor"
+                    Value="#35372E" />
+                <Setter
+                    Property="BarTextColor"
+                    Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                Padding="20"
+                BackgroundColor="{StaticResource cinzaBase}">
+                <Label
+                    Text="Estatística eSocial"
+                    Font="Large" />
+                <Label
+                    Text="Maurílio Dias"
+                    Font="small" />
+            </StackLayout>
+            <ListView x:Name="lista"
+                ItemsSource="{Binding MenuItens}"
+                RowHeight="60"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Padding="20"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="40"
+                                    Source="{Binding Icon}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
